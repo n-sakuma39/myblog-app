@@ -1,0 +1,74 @@
+/*--------------------------------
+  ページネーション
+---------------------------------*/
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  list-style: none;
+
+  ul {
+    display: flex;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    text-align: center;
+    line-height: 1;
+    height: 40px;
+    margin: 4px;
+    width: 40px;
+    background: #ebebeb;
+    border-radius: 5px;
+  }
+
+  .total {
+    width: 80px;
+  }
+
+  a {
+    align-items: center;
+    color: #616269;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    border-radius: 5px;
+
+    &.active {
+      background-color: #3067af;
+      color: #fff;
+      border-color: #3067af;
+      font-weight: bold;
+    }
+  }
+
+  .disabled {
+    pointer-events: none;
+    span {
+      color: #ccc;
+      align-items: center;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      border-radius: 5px;
+    }
+  }
+}
+
+// SP表示
+@media only screen and (max-width: 767.8px) {
+  .pagination {
+    font-size: 0.8rem;
+    padding-top: 0;
+    overflow: hidden;
+    li {
+      margin: 2px;
+      width: 33px;
+      height: 30px;
+    }
+    .total {
+      width: 50px;
+    }
+  }
+}

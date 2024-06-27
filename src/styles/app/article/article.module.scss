@@ -1,0 +1,117 @@
+/*--------------------------------
+  Blog page
+---------------------------------*/
+.article-box {
+  max-width: 1280px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 40px;
+  margin: 60px 70px;
+  align-items: start;
+
+  main {
+    background: #fff;
+    padding: 40px 20px;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.03),
+      0px 2px 30px 0px rgba(0, 0, 0, 0.08), 0px 0px 1px 0px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// 詳細ページ
+.detail-box {
+  h1 {
+    text-align: center;
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+  }
+  p {
+    margin-bottom: 1.5em;
+  }
+  code {
+    padding: 0.25rem 0.5rem;
+    background: #215aa012;
+    font-size: 0.85em;
+    border-radius: 8px;
+    vertical-align: 0.08em;
+  }
+  .date {
+    display: flex;
+    justify-content: end;
+    margin: 0 20px 20px auto;
+  }
+  .worksImg {
+    max-width: 700px;
+    max-height: 100% !important;
+    margin: 0 auto 30px auto;
+  }
+  .border {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+  }
+  .article {
+    line-height: 1.9;
+    height: -moz-fit-content;
+    height: fit-content;
+    & > :first-child {
+      margin-top: 0;
+    }
+    h2,
+    h3,
+    h4 {
+      margin: 1.5em 0;
+    }
+    h2 {
+      font-size: 1.25em;
+      line-height: 1.5em;
+      color: #0f83fd;
+      background: #e1f5fe;
+      border-left: 4px solid #0f83fd;
+      padding: 1rem;
+    }
+    h3 {
+      font-weight: 700;
+      font-size: 1.25em;
+      padding-bottom: 0.5em;
+      border-bottom: 4px solid #0f83fd;
+    }
+    h4 {
+      padding-bottom: 0.3em;
+      font-size: 1.5em;
+      border-bottom: 1px solid #d6e3ed;
+    }
+    code {
+      word-wrap: break-word;
+      white-space: pre-wrap;
+    }
+    figure {
+      margin: 2em 0;
+      text-align: center;
+      img {
+        width: 80%;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .article-box {
+    grid-template-columns: 1fr;
+    margin: 20px 0px;
+    border-radius: 0;
+    .worksImg {
+      padding: 60px 0 20px;
+      border-radius: 0;
+    }
+  }
+  .detail-box {
+    .date {
+      margin: 0 10px 0px auto;
+    }
+    .border {
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+    }
+  }
+}

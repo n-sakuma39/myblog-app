@@ -1,0 +1,90 @@
+/*--------------------------------
+TOPページ
+---------------------------------*/
+// メインビジュアル
+.hero {
+  .inner-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 40px 0 100px 0;
+  }
+  .txt-name {
+    font-size: 3.6rem;
+    font-family: Futura, sans-serif;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    letter-spacing: 0.1em;
+  }
+  .txt-sub {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 40px;
+    letter-spacing: 0.08em;
+  }
+  .txt-comment {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    padding: 0 10px;
+  }
+}
+
+// ブログ（記述はモジュールの方に記載）
+.blog {
+  background-color: #f5f5f5;
+}
+
+// プロフィール
+.profile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 850px;
+  margin: 0 auto;
+
+  .profileImg {
+    width: 25%;
+    margin-right: 30px;
+    border-radius: 50%;
+    & > img {
+      border-radius: 50%;
+    }
+  }
+
+  .profileBody {
+    flex: 1 1;
+    & > p {
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+  }
+}
+
+// CONTACT
+.contact {
+  background-color: #f5f5f5;
+  padding-bottom: 60px;
+  p {
+    text-align: center;
+  }
+}
+
+// SP
+@media only screen and (max-width: 767.8px) {
+  .hero {
+    .txt-name {
+      font-size: 3.2rem;
+    }
+  }
+  .profile {
+    flex-direction: column;
+    .profileImg {
+      margin-right: 0;
+      width: 50%;
+    }
+  }
+}

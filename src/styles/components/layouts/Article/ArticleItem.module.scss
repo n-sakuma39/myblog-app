@@ -1,0 +1,107 @@
+/*--------------------------------
+  記事リスト
+---------------------------------*/
+.worksList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 780px;
+  margin: 0 auto 30px;
+}
+
+.worksListTop {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.worksItem {
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  transition: all 0.3s;
+  a {
+    display: block;
+    color: #333;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
+  }
+  .worksImg {
+    position: relative;
+    text-align: center;
+    max-height: 222px;
+    overflow: hidden;
+    .worksCategory {
+      position: absolute;
+      display: block;
+      top: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.65);
+      padding: 7px 10px;
+      border-radius: 3px;
+      line-height: 1;
+      font-size: 11px;
+      color: #fff;
+      font-weight: 700;
+      border: 1px solid #fff;
+    }
+  }
+  .worksInner {
+    padding: 15px;
+    .worksName {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0 0 10px;
+      line-height: 1.2;
+    }
+
+    .worksTag {
+      font-size: 1rem;
+      word-break: break-all;
+      & > span {
+        position: relative;
+        font-size: 13px;
+        padding-left: 18px;
+        margin-right: 7px;
+        &::before {
+          content: "";
+          display: inline-block;
+          background: url(/images/icon_tag.svg) 50% no-repeat;
+          background-size: contain;
+          width: 14px;
+          height: 14px;
+          position: absolute;
+          top: 8px;
+          left: 0;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+}
+
+.publishedAt {
+  margin-bottom: 5px;
+  background: url(/images/icon_clock.svg) no-repeat 0 5px;
+  background-size: 15px;
+  padding-left: 20px;
+  font-size: 1rem;
+}
+
+// SP表示
+@media only screen and (max-width: 767.8px) {
+  .worksList {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .worksItem {
+    .worksInner {
+    }
+    .worksImg {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      .worksCategory {
+        top: 30px;
+      }
+    }
+  }
+}

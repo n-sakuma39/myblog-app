@@ -1,0 +1,185 @@
+html {
+  box-sizing: border-box;
+  word-break: normal;
+  -moz-tab-size: 4;
+  tab-size: 4;
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+  background-repeat: no-repeat;
+}
+
+::before,
+::after {
+  vertical-align: inherit;
+  text-decoration: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Montserrat", "Helvetica Neue", Arial,
+    "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  color: #333;
+  background: #f8fafb;
+}
+
+a {
+  transition: opacity 0.3s;
+  text-decoration: none;
+  color: #1ca9e3;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+img {
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+  border-style: none;
+}
+
+ul,
+li {
+  list-style-type: none;
+}
+
+.container {
+  width: 100%;
+  position: relative;
+  padding-bottom: 130px;
+}
+
+main {
+  padding-top: 60px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+}
+
+.sidebar {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.section {
+  padding: 60px 0;
+}
+
+/*--------------------------------
+ 見出し
+---------------------------------*/
+.title {
+  font-size: 2.2rem;
+  font-weight: normal;
+  line-height: 1.2;
+  margin-bottom: 40px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: #333;
+  font-family: Futura, sans-serif;
+}
+
+h4 {
+  background-color: #f7f7fc;
+  padding: 20px;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+h5 {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #bfbcbc;
+  font-size: 1.2rem;
+  padding: 0 0 5px 10px;
+  font-weight: 700;
+}
+
+.lead {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.box {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.util-sp-indention {
+  display: none;
+}
+
+.btn-more {
+  width: 300px;
+  text-align: center;
+  margin: 60px auto 0;
+  & > a {
+    display: inline-block;
+    display: block;
+    background-color: #1b73e8;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    line-height: 1;
+    border-radius: 5px;
+    padding: 17px 40px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    position: relative;
+    overflow: hidden;
+    &:hover {
+      opacity: 0.7;
+    }
+    &:focus {
+      outline: none;
+    }
+    &::after {
+      content: ">";
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      font-size: 20px;
+      margin-top: -1px;
+    }
+  }
+}
+
+/* スマホ表示 */
+@media screen and (max-width: 767px) {
+  .box {
+    padding: 0 20px;
+  }
+  .section {
+    padding: 35px 0 50px 0;
+  }
+  .title {
+    margin-bottom: 20px;
+  }
+  .util-sp-indention {
+    display: block;
+  }
+  .btn-more {
+    width: 90%;
+    margin: 40px auto 0;
+  }
+  .inner-box {
+    padding: 0 20px;
+  }
+}
