@@ -1,12 +1,15 @@
 /*--------------------------------
 contact page
 ---------------------------------*/
+.section {
+  background-color: #f5f5f5;
+  padding-bottom: 50px;
+}
 .formContainer {
   font-family: "Arial", sans-serif;
   background-color: #f7f7f7 !important;
   text-align: center;
   margin: 0;
-  padding: 0px 0 80px 0;
 }
 
 .formInner {
@@ -87,4 +90,11 @@ contact page
 
 .kome {
   color: #ef4444;
+}
+
+// スマホ表示
+@media screen and (max-width: 767px) {
+  .section {
+    padding: 30px 0;
+  }
 }

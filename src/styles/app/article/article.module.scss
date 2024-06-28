@@ -100,8 +100,11 @@
     grid-template-columns: 1fr;
     margin: 20px 0px;
     border-radius: 0;
+    main {
+      padding-top: 70px;
+    }
     .worksImg {
-      padding: 60px 0 20px;
+      padding: 0px 0 20px;
       border-radius: 0;
     }
   }
