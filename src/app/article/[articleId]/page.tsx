@@ -12,9 +12,14 @@ type Props = {
   params: { articleId: string };
 };
 
-export async function generateMetadata(props: Props): Promise<Metadata> {
-  const id = props.params.articleId;
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const id = params.articleId;
   const article = await getArticlesDetail(id);
+  if (!article) {
+    return {
+      title: "記事が見つかりません",
+    };
+  }
   return {
     title: article.title,
   };
@@ -22,16 +27,13 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
 export async function generateStaticParams() {
   const { contents } = await getArticles();
-  const paths = contents.map((article) => {
-    return {
-      article: article.id,
-    };
-  });
-  return paths;
+  return contents.map((article) => ({
+    articleId: article.id,
+  }));
 }
 
-export default async function Article(props: Props) {
-  const article = await getArticlesDetail(props.params.articleId);
+export default async function Article({ params }: Props) {
+  const article = await getArticlesDetail(params.articleId);
 
   if (!article) {
     notFound();

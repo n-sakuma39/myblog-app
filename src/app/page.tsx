@@ -5,7 +5,7 @@ import ArticleList from "@/components/layouts/Article/ArticleList";
 
 export default function Home() {
   return (
-    <main>
+    <main className={styles.topContainer}>
       <section className={styles.hero}>
         <div className={styles["inner-box"]}>
           <p className={styles["txt-name"]}>NAOTO SAKUMA</p>
