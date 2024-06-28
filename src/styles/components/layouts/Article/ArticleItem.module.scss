@@ -1,12 +1,16 @@
 /*--------------------------------
   記事リスト
 ---------------------------------*/
+.worksContainer {
+  display: flex;
+  justify-content: center;
+  margin: 0 20px 30px;
+}
 .worksList {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
   max-width: 980px;
-  margin: 0 auto 30px;
 }
 
 .worksListTop {

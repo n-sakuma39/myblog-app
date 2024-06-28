@@ -26,13 +26,17 @@ const ArticleList = async ({
     : articlesToShow;
 
   return (
-    <ul
-      className={`${styles.worksList} ${isTopPage ? styles.worksListTop : ""}`}
-    >
-      {displayedArticles.map((article) => (
-        <ArticleItem key={article.id} article={article} />
-      ))}
-    </ul>
+    <div className={styles.worksContainer}>
+      <ul
+        className={`${styles.worksList} ${
+          isTopPage ? styles.worksListTop : ""
+        }`}
+      >
+        {displayedArticles.map((article) => (
+          <ArticleItem key={article.id} article={article} />
+        ))}
+      </ul>
+    </div>
   );
 };
 
