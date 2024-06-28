@@ -33,12 +33,7 @@ export default function Home() {
           <h2 className="title">ABOUT</h2>
           <div className={styles.profile}>
             <p className={styles.profileImg}>
-              <Image
-                src="/images/profile.png"
-                alt=""
-                width={400}
-                height={400}
-              />
+              <Image src="/images/about.png" alt="" width={400} height={400} />
             </p>
             <div className={styles.profileBody}>
               <p>
