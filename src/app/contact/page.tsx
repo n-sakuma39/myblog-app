@@ -6,7 +6,7 @@ const page = () => {
     <main>
       <section className={styles.section}>
         <div className={styles.formContainer}>
-          <h2 className={styles.title}>CONTACT</h2>
+          <h2 className="title">CONTACT</h2>
           <ContactForm />
         </div>
       </section>

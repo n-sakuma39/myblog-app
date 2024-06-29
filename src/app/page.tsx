@@ -33,7 +33,13 @@ export default function Home() {
           <h2 className="title">ABOUT</h2>
           <div className={styles.profile}>
             <p className={styles.profileImg}>
-              <Image src="/images/about.png" alt="" width={400} height={400} />
+              <Image
+                src="/images/about.png"
+                alt=""
+                width={400}
+                height={400}
+                loading="lazy"
+              />
             </p>
             <div className={styles.profileBody}>
               <p>
@@ -53,8 +59,8 @@ export default function Home() {
             <br className="util-sp-indention" />
             下記リンク先フォームからお願いいたします。
           </p>
+          <LinkButton href="/contact/" text="お問い合わせはこちら" />
         </div>
-        <LinkButton href="/contact/" text="お問い合わせはこちら" />
       </section>
     </main>
   );

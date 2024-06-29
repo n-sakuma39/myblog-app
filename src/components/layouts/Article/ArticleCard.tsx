@@ -14,6 +14,7 @@ const ArticleItem = ({ article }: ArticleItemProps) => {
             alt=""
             width={400}
             height={300}
+            loading="lazy"
           />
           <span className={styles.worksCategory}>
             {article.categories[0].name}

@@ -17,7 +17,7 @@ export async function getArticles(queries?: MicroCMSQueries) {
   const articles = await microCMSClient.getList<Article>({
     customRequestInit: {
       next: {
-        revalidate: 0,
+        revalidate: 60, // 60秒ごとに再検証しておく
       },
     },
     endpoint: "articles",

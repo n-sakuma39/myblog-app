@@ -2,7 +2,7 @@ import { getArticles, getArticlesDetail } from "@/libs/microcms";
 import Image from "next/image";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import ArticleContent from "@/components/layouts/Article/ArticleSyntaxHight";
+import dynamic from "next/dynamic";
 import styles from "@/styles/app/article/article.module.scss";
 import articleStyle from "@/styles/components/layouts/Article/ArticleItem.module.scss";
 import { format, parseISO } from "date-fns";
@@ -32,6 +32,12 @@ export async function generateStaticParams() {
   }));
 }
 
+// キャッシュ活用でページ読み込みを早くする
+const ArticleContent = dynamic(
+  () => import("@/components/layouts/Article/ArticleSyntaxHight"),
+  { ssr: false }
+);
+
 export default async function Article({ params }: Props) {
   const article = await getArticlesDetail(params.articleId);
 
@@ -57,12 +63,13 @@ export default async function Article({ params }: Props) {
             alt=""
             width={400}
             height={300}
+            loading="lazy"
           />
           <span className={articleStyle.worksCategory}>
             {article.categories[0].name}
           </span>
         </div>
-        <div className={articleStyle.worksInner}>
+        <div className={`${articleStyle.worksInner} ${styles.worksInner}`}>
           <p className={`${articleStyle.worksTag} ${styles.border}`}>
             {article.tags.map((tag, index) => (
               <span key={index}>{tag.name}</span>

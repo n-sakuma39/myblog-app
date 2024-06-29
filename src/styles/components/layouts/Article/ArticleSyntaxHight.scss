@@ -10,7 +10,7 @@ pre[class*="language-"] {
 }
 
 .code-block-filename {
-  display: table;
+  display: inline-block;
   max-width: 100%;
   background: #323e52;
   color: rgba(255, 255, 255, 0.9019607843);
@@ -23,6 +23,6 @@ pre[class*="language-"] {
 }
 
 // 開発環境では2つ出るため、デプロイする前に削除
-.code-block-filename:first-child {
-  display: none;
-}
+// .code-block-filename:first-child {
+//   display: none;
+// }
