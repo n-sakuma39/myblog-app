@@ -5,6 +5,7 @@ import styles from "@/styles/app/article/article.module.scss";
 import ArticleList from "@/components/layouts/Article/ArticleList";
 import ArticlePagination from "@/components/layouts/Article/ArticlePagination";
 import { PAR_PAGE } from "@/config/paginationSettings";
+import { LinkButton } from "@/components/elements/Button";
 
 type Props = {
   params: { categoryId: string };
@@ -15,7 +16,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   const id = props.params.categoryId;
   const category = await getCategoryDetail(id);
   return {
-    title: `[${category.name}]カテゴリーの記事一覧 | 39 MY BLOG`,
+    title: `「${category.name}」記事一覧 | SakuTech blog`,
   };
 }
 
@@ -36,7 +37,7 @@ export default function CategoryArticleList(props: Props) {
     <main className={styles.worksImg}>
       <section>
         <div className="inner-box">
-          <h2 className="title">{category.name}の記事一覧</h2>
+          <h2 className="title">「{category.name}」記事一覧</h2>
           <ArticleList
             isTopPage={false}
             categoryId={props.params.categoryId}
@@ -45,6 +46,7 @@ export default function CategoryArticleList(props: Props) {
           {totalPages > 1 && (
             <ArticlePagination total={totalPages} currentPage={page} />
           )}
+          <LinkButton href="/article/" text="ブログ一覧へ" />
         </div>
       </section>
     </main>

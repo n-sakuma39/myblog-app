@@ -5,6 +5,7 @@ import styles from "@/styles/app/article/article.module.scss";
 import ArticleList from "@/components/layouts/Article/ArticleList";
 import ArticlePagination from "@/components/layouts/Article/ArticlePagination";
 import { PAR_PAGE } from "@/config/paginationSettings";
+import { LinkButton } from "@/components/elements/Button";
 
 type Props = {
   params: { tagid: string };
@@ -16,7 +17,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   const tag = await getTagDetail(id);
   //console.log("propsの内容確認:", props);
   return {
-    title: `[${tag.name}]タグの記事一覧 | 39 MY BLOG`,
+    title: `「${tag.name}」記事一覧 | SakuTech blog`,
   };
 }
 
@@ -45,6 +46,7 @@ export default function TagArticleList(props: Props) {
           {totalPages > 1 && (
             <ArticlePagination total={totalPages} currentPage={page} />
           )}
+          <LinkButton href="/article/" text="ブログ一覧へ" />
         </div>
       </section>
     </main>
