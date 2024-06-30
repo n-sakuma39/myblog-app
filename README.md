@@ -39,4 +39,4 @@ TOP ページ、BLOG ページ、ABOUT ページ、お問い合わせページ�
 
 ## 著者
 
-[n-sakuma39](https://github.com/n-sakuma39/myblog-app)
+[SakuTech blog](https://github.com/n-sakuma39/)
