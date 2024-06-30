@@ -7,6 +7,7 @@
 - Next.js（14.2.3）
 - microCMS
 - TypeScript
+- CSS module
 - Node.js（16.14.0）
 - GitHub
 - Vercel
@@ -33,8 +34,8 @@
 
 ## コメント
 
-Next.js14 と microCMS を使ったポートフォリオサイト。
-TOP ページ、BLOG ページ、ABOUT ページ、お問い合わせページと構成されています。
+Next.js14 と microCMS を使ったポートフォリオサイト。  
+TOP ページ、BLOG ページ、ABOUT ページ、お問い合わせページと構成されています。  
 ブログページは microCMS を使っていて、主にこちらを中心に今後個人開発したものや技術情報などを公開予定。
 
 ## 著者
