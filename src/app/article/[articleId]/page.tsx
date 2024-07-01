@@ -7,6 +7,7 @@ import styles from "@/styles/app/article/article.module.scss";
 import articleStyle from "@/styles/components/layouts/Article/ArticleItem.module.scss";
 import { format, parseISO } from "date-fns";
 import { LinkButton } from "@/components/elements/Button";
+import { Suspense } from "react";
 
 type Props = {
   params: { articleId: string };
@@ -76,7 +77,9 @@ export default async function Article({ params }: Props) {
             ))}
           </p>
           <div className={styles.article}>
-            <ArticleContent content={article.content} />
+            <Suspense fallback={<div>Loading...</div>}>
+              <ArticleContent content={article.content} />
+            </Suspense>
           </div>
         </div>
         <LinkButton href="/article/" text="ブログ一覧へ" />
