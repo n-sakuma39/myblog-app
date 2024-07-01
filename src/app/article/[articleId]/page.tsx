@@ -64,7 +64,7 @@ export default async function Article({ params }: Props) {
             alt=""
             width={400}
             height={300}
-            loading="lazy"
+            priority={true}
           />
           <span className={articleStyle.worksCategory}>
             {article.categories[0].name}

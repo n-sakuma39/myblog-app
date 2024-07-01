@@ -34,7 +34,7 @@ export async function getArticlesDetail(
   const articlesDetail = await microCMSClient.getListDetail<Article>({
     customRequestInit: {
       next: {
-        revalidate: 0,
+        revalidate: 60,
       },
     },
     endpoint: "articles",
