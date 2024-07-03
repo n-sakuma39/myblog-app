@@ -34,87 +34,87 @@
 
 ## フォルダ構成
 
-myblog-app/
-├── src/
-│ ├── app/
-│ │ ├── about/
-│ │ │ └── page.tsx
-│ │ ├── api/
-│ │ │ └── contact/
-│ │ │ └── route.ts
-│ │ ├── article/
-│ │ │ ├── [articleId]/
-│ │ │ │ └── page.tsx
-│ │ │ ├── layout.tsx
-│ │ │ └── page.tsx
-│ │ ├── category/
-│ │ │ ├── [categoryId]/
-│ │ │ │ └── page.tsx
-│ │ │ └── layout.tsx
-│ │ ├── contact/
-│ │ │ └── page.tsx
-│ │ ├── tag/
-│ │ │ ├── [tagid]/
-│ │ │ │ └── page.tsx
-│ │ │ └── layout.tsx
-│ │ ├── layout.tsx
-│ │ └── page.tsx
-│ ├── components/
-│ │ ├── elements/
-│ │ │ └── Button.tsx
-│ │ ├── layouts/
-│ │ │ ├── Article/
-│ │ │ │ ├── ArticleCard.tsx
-│ │ │ │ ├── ArticleItem.module.scss
-│ │ │ │ ├── ArticleList.tsx
-│ │ │ │ ├── ArticlePagination.module.scss
-│ │ │ │ ├── ArticleSideBar.module.scss
-│ │ │ │ ├── ArticleSideBar.tsx
-│ │ │ ├── ArticleSyntaxHight.scss
-│ │ │ │ └── ArticleSyntaxHight.tsx
-│ │ │ ├── ContactForm/
-│ │ │ │ └── ContactForm.tsx
-│ │ │ ├── Footer/
-│ │ │ │ ├── Footer.module.scss
-│ │ │ │ └── Footer.tsx
-│ │ │ └── Header/
-│ │ │ ├── Header.module.scss
-│ │ │ └── Header.tsx
-│ ├── config/
-│ │ └── paginationSettings.ts
-│ ├── libs/
-│ │ └── microcms.ts
-│ ├── styles/
-│ │ ├── app/
-│ │ │ ├── about/
-│ │ │ │ └── about.module.scss
-│ │ │ ├── article/
-│ │ │ │ └── article.module.scss
-│ │ │ ├── contact/
-│ │ │ │ └── contact.module.scss
-│ │ │ ├── globals/
-│ │ │ │ └── globals.scss
-│ │ │ ├── top/
-│ │ │ └── top.module.scss
-│ │ └── components/
-│ │ └── layouts/
-│ │ ├── Article/
-│ │ │ └── ArticleItem.module.scss
-│ │ ├── Footer/
-│ │ │ └── Footer.module.scss
-│ │ └── Header/
-│ │ └── Header.module.scss
-│ ├── types/
-│ │ └── articleType.ts
-│ └── utils/
-├── public/
-│ └── images/
-│ ├── icon_clock.svg
-│ └── icon_tag.svg
-├── .gitignore
-├── next.config.mjs
-├── package.json
-├── tsconfig.json
+myblog-app/  
+├── src/  
+│ ├── app/  
+│ │ ├── about/  
+│ │ │ └── page.tsx  
+│ │ ├── api/  
+│ │ │ └── contact/  
+│ │ │ └── route.ts  
+│ │ ├── article/  
+│ │ │ ├── [articleId]/  
+│ │ │ │ └── page.tsx  
+│ │ │ ├── layout.tsx  
+│ │ │ └── page.tsx  
+│ │ ├── category/  
+│ │ │ ├── [categoryId]/  
+│ │ │ │ └── page.tsx  
+│ │ │ └── layout.tsx  
+│ │ ├── contact/  
+│ │ │ └── page.tsx  
+│ │ ├── tag/  
+│ │ │ ├── [tagid]/  
+│ │ │ │ └── page.tsx  
+│ │ │ └── layout.tsx  
+│ │ ├── layout.tsx  
+│ │ └── page.tsx  
+│ ├── components/  
+│ │ ├── elements/  
+│ │ │ └── Button.tsx  
+│ │ ├── layouts/  
+│ │ │ ├── Article/  
+│ │ │ │ ├── ArticleCard.tsx  
+│ │ │ │ ├── ArticleItem.module.scss  
+│ │ │ │ ├── ArticleList.tsx  
+│ │ │ │ ├── ArticlePagination.module.scss  
+│ │ │ │ ├── ArticleSideBar.module.scss  
+│ │ │ │ ├── ArticleSideBar.tsx  
+│ │ │ ├── ArticleSyntaxHight.scss  
+│ │ │ │ └── ArticleSyntaxHight.tsx  
+│ │ │ ├── ContactForm/  
+│ │ │ │ └── ContactForm.tsx  
+│ │ │ ├── Footer/  
+│ │ │ │ ├── Footer.module.scss  
+│ │ │ │ └── Footer.tsx  
+│ │ │ └── Header/  
+│ │ │ ├── Header.module.scss  
+│ │ │ └── Header.tsx  
+│ ├── config/  
+│ │ └── paginationSettings.ts  
+│ ├── libs/  
+│ │ └── microcms.ts  
+│ ├── styles/  
+│ │ ├── app/  
+│ │ │ ├── about/  
+│ │ │ │ └── about.module.scss  
+│ │ │ ├── article/  
+│ │ │ │ └── article.module.scss  
+│ │ │ ├── contact/  
+│ │ │ │ └── contact.module.scss  
+│ │ │ ├── globals/  
+│ │ │ │ └── globals.scss  
+│ │ │ ├── top/  
+│ │ │ └── top.module.scss  
+│ │ └── components/  
+│ │ └── layouts/  
+│ │ ├── Article/  
+│ │ │ └── ArticleItem.module.scss  
+│ │ ├── Footer/  
+│ │ │ └── Footer.module.scss  
+│ │ └── Header/  
+│ │ └── Header.module.scss  
+│ ├── types/  
+│ │ └── articleType.ts  
+│ └── utils/  
+├── public/  
+│ └── images/  
+│ ├── icon_clock.svg  
+│ └── icon_tag.svg  
+├── .gitignore  
+├── next.config.mjs  
+├── package.json  
+├── tsconfig.json  
 └── typed-scss-modules.config.ts
 
 ## コメント
