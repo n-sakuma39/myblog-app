@@ -6,7 +6,7 @@
 
 - Next.js（14.2.3）
 - microCMS
-- TypeScript
+- TypeScript（5.0.0）
 - CSS module
 - Node.js（16.14.0）
 - GitHub
