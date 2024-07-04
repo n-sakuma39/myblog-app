@@ -39,5 +39,8 @@
     "eslint-config-next": "14.2.3",
     "typed-scss-modules": "^8.0.1",
     "typescript": "^5"
+  },
+  "engines": {
+    "node": "20.9.0"
   }
 }

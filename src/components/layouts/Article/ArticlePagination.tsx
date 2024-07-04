@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "@/styles/components/layouts/Article/ArticlePagination.module.scss";
-
+import { PAR_PAGE } from "@/config/paginationSettings";
 type Props = {
   total: number;
   currentPage: number;
@@ -9,15 +9,14 @@ type Props = {
 const ArticlePagination: React.FC<Props> = ({ total, currentPage }) => {
   const isFirst = currentPage === 1;
   const isLast = currentPage === total;
-  const maxPagesToShow = 4; // ページネーションナンバーMAX表示
   let startPage = Math.max(1, currentPage - 1);
   let endPage = Math.min(total, currentPage + 2);
 
   if (currentPage <= 2) {
     startPage = 1;
-    endPage = Math.min(total, maxPagesToShow);
+    endPage = Math.min(total, PAR_PAGE);
   } else if (currentPage > total - 2) {
-    startPage = Math.max(1, total - (maxPagesToShow - 1));
+    startPage = Math.max(1, total - (PAR_PAGE - 1));
     endPage = total;
   }
 

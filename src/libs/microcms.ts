@@ -12,18 +12,44 @@ export const microCMSClient = createClient({
   apiKey: process.env.NEXT_PUBLIC_MICROCMS_API_KEY,
 });
 
-// 記事一覧の取得
-export async function getArticles(queries?: MicroCMSQueries) {
-  const articles = await microCMSClient.getList<Article>({
+// 共通のリクエスト関数
+async function fetchList<T>(
+  endpoint: string,
+  queries?: MicroCMSQueries,
+  revalidate: number = 0
+) {
+  return await microCMSClient.getList<T>({
     customRequestInit: {
       next: {
-        revalidate: 60, // 60秒ごとに再検証しておく
+        revalidate,
       },
     },
-    endpoint: "articles",
+    endpoint,
     queries,
   });
-  return articles;
+}
+
+async function fetchListDetail<T>(
+  endpoint: string,
+  contentId: string,
+  queries?: MicroCMSQueries,
+  revalidate: number = 0
+) {
+  return await microCMSClient.getListDetail<T>({
+    customRequestInit: {
+      next: {
+        revalidate,
+      },
+    },
+    endpoint,
+    contentId,
+    queries,
+  });
+}
+
+// 記事一覧の取得
+export async function getArticles(queries?: MicroCMSQueries) {
+  return await fetchList<Article>("articles", queries, 60);
 }
 
 // 特定の記事を取得
@@ -31,26 +57,12 @@ export async function getArticlesDetail(
   contentId: string,
   queries?: MicroCMSQueries
 ) {
-  const articlesDetail = await microCMSClient.getListDetail<Article>({
-    customRequestInit: {
-      next: {
-        revalidate: 60,
-      },
-    },
-    endpoint: "articles",
-    contentId,
-    queries,
-  });
-  return articlesDetail;
+  return await fetchListDetail<Article>("articles", contentId, queries, 60);
 }
 
 // カテゴリ一覧を取得
 export async function getCategories(queries?: MicroCMSQueries) {
-  const categories = await microCMSClient.getList<CategoryName>({
-    endpoint: "categories",
-    queries,
-  });
-  return categories;
+  return await fetchList<CategoryName>("categories", queries);
 }
 
 // idに該当するカテゴリを取得
@@ -58,31 +70,12 @@ export async function getCategoryDetail(
   contentId: string,
   queries?: MicroCMSQueries
 ) {
-  const categoriesDetail = await microCMSClient.getListDetail<CategoryName>({
-    customRequestInit: {
-      next: {
-        revalidate: 0,
-      },
-    },
-    endpoint: "categories",
-    contentId,
-    queries,
-  });
-  return categoriesDetail;
+  return await fetchListDetail<CategoryName>("categories", contentId, queries);
 }
 
 // タグ一覧を取得
 export async function getTags(queries?: MicroCMSQueries) {
-  const tags = await microCMSClient.getList<TagName>({
-    customRequestInit: {
-      next: {
-        revalidate: 0,
-      },
-    },
-    endpoint: "tags",
-    queries,
-  });
-  return tags;
+  return await fetchList<TagName>("tags", queries);
 }
 
 // idに該当するタグを取得
@@ -90,15 +83,5 @@ export async function getTagDetail(
   contentId: string,
   queries?: MicroCMSQueries
 ) {
-  const tagDetail = await microCMSClient.getListDetail<TagName>({
-    customRequestInit: {
-      next: {
-        revalidate: 0,
-      },
-    },
-    endpoint: "tags",
-    contentId,
-    queries,
-  });
-  return tagDetail;
+  return await fetchListDetail<TagName>("tags", contentId, queries);
 }

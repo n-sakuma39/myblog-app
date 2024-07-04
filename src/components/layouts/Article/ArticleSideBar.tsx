@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "@/styles/components/layouts/Article/ArticleSideBar.module.scss";
 import { CategoryName, TagName } from "@/types/articleType";
+import Link from "next/link";
 
 type Props = {
   categories: CategoryName[];
@@ -16,7 +17,7 @@ export default function ArticleSideBar(props: Props) {
           <ul className={styles.categoryList}>
             {props.categories.map((category) => (
               <li key={category.id}>
-                <a href={`/category/${category.id}`}>{category.name}</a>
+                <Link href={`/category/${category.id}`}>{category.name}</Link>
               </li>
             ))}
           </ul>
@@ -27,7 +28,7 @@ export default function ArticleSideBar(props: Props) {
         <ul className={styles.tagList}>
           {props.tags.map((tag) => (
             <li key={tag.id}>
-              <a href={`/tag/${tag.id}`}>{tag.name}</a>
+              <Link href={`/tag/${tag.id}`}>{tag.name}</Link>
             </li>
           ))}
         </ul>

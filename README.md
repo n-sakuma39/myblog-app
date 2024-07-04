@@ -8,7 +8,7 @@
 - microCMS
 - TypeScript（5.0.0）
 - CSS module
-- Node.js（16.14.0）
+- Node.js（20.9.0）
 - GitHub
 - Vercel
 
