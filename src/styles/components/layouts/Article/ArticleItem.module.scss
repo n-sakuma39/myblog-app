@@ -21,7 +21,7 @@
   margin-bottom: 20px;
   box-sizing: border-box;
   transition: all 0.3s;
-  a {
+  & > a {
     display: block;
     color: #333;
     background: #fff;
