@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "run-p dev:next dev:scss",
-    "dev:next": "next dev -p 2405",
+    "dev:next": "next dev",
     "dev:scss": "typed-scss-modules src --watch",
     "build": "next build",
     "start": "next start",

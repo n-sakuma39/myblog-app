@@ -10,12 +10,22 @@ import { LinkButton } from "@/components/elements/Button";
 import { Suspense } from "react";
 
 type Props = {
-  params: { articleId: string };
+  params: {
+    articleId: string;
+  };
+  searchParams: {
+    dk?: string;
+  };
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+  searchParams,
+}: Props): Promise<Metadata> {
   const id = params.articleId;
-  const article = await getArticlesDetail(id);
+  const article = await getArticlesDetail(id, {
+    draftKey: searchParams.dk,
+  });
   if (!article) {
     return {
       title: "記事が見つかりません",

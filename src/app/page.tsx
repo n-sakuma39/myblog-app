@@ -38,7 +38,8 @@ export default function Home() {
                 alt=""
                 width={400}
                 height={400}
-                loading="lazy"
+                priority
+                sizes="100vw"
               />
             </p>
             <div className={styles.profileBody}>
