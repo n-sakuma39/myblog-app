@@ -43,14 +43,15 @@ export async function generateStaticParams() {
   }));
 }
 
-// キャッシュ活用でページ読み込みを早くする
 const ArticleContent = dynamic(
   () => import("@/components/layouts/Article/ArticleSyntaxHight"),
   { ssr: false }
 );
 
-export default async function Article({ params }: Props) {
-  const article = await getArticlesDetail(params.articleId);
+export default async function Article({ params, searchParams }: Props) {
+  const article = await getArticlesDetail(params.articleId, {
+    draftKey: searchParams.dk,
+  });
 
   if (!article) {
     notFound();
