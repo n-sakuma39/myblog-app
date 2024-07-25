@@ -76,6 +76,7 @@ export default async function Blog({ params, searchParams }: Props) {
             width={400}
             height={300}
             priority
+            sizes="100vw"
           />
           <span className={articleStyle.worksCategory}>
             {article.categories[0].name}

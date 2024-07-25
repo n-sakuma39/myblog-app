@@ -16,6 +16,7 @@ const about = () => {
                   width={400}
                   height={400}
                   priority
+                  sizes="100vw"
                 />
               </p>
               <div className={styles.aboutBody}>

@@ -24,7 +24,8 @@ function SearchFieldComponents() {
           alt="検索"
           width={16}
           height={16}
-          loading="eager"
+          priority
+          sizes="100vw"
         />
         <input
           type="text"
