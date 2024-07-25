@@ -1,0 +1,36 @@
+.form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 93%;
+  img {
+    width: 16px;
+  }
+}
+
+.search:focus-within {
+  border-color: #b3b3b3;
+}
+
+.searchInput {
+  display: block;
+  box-sizing: border-box;
+  padding: 0;
+  width: 100%;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+}

@@ -1,9 +1,9 @@
 import { use } from "react";
-import styles from "@/styles/app/article/article.module.scss";
-import { getCategories, getTags } from "@/libs/microcms";
-import ArticleSideBar from "@/components/layouts/Article/ArticleSideBar";
+import styles from "@/app/blog/page.module.scss";
+import { getCategories, getTags } from "@/app/_libs/microcms";
+import SideBar from "@/app/_components/layouts/Blog/SideBar";
 
-export default function ArticleLayout({
+export default function BlogLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -14,7 +14,7 @@ export default function ArticleLayout({
   return (
     <div className={styles["article-box"]}>
       {children}
-      <ArticleSideBar categories={categories} tags={tags} />
+      <SideBar categories={categories} tags={tags} />
     </div>
   );
 }

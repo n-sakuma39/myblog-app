@@ -1,5 +1,5 @@
-import ContactForm from "@/components/layouts/ContactForm/ContactForm";
-import styles from "@/styles/app/contact/contact.module.scss";
+import ContactForm from "@/app/_components/layouts/ContactForm";
+import styles from "./page.module.scss";
 
 const page = () => {
   return (

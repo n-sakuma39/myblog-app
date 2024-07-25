@@ -1,11 +1,11 @@
 import { use } from "react";
-import { getArticles, getTagDetail } from "@/libs/microcms";
+import { getBlog, getTagDetail } from "@/app/_libs/microcms";
 import { Metadata } from "next";
-import styles from "@/styles/app/article/article.module.scss";
-import ArticleList from "@/components/layouts/Article/ArticleList";
-import ArticlePagination from "@/components/layouts/Article/ArticlePagination";
-import { PAR_PAGE } from "@/config/paginationSettings";
-import { LinkButton } from "@/components/elements/Button";
+import styles from "@/app/blog/page.module.scss";
+import BlogList from "@/app/_components/layouts/Blog/CardList";
+import Pagination from "@/app/_components/layouts/Blog/Pagination";
+import { PAR_PAGE } from "@/app/_constants";
+import { LinkButton } from "@/app/_components/elements/Button";
 
 type Props = {
   params: { tagid: string };
@@ -15,16 +15,15 @@ type Props = {
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const id = props.params.tagid;
   const tag = await getTagDetail(id);
-  //console.log("propsの内容確認:", props);
   return {
     title: `「${tag.name}」記事一覧 | SakuTech blog`,
   };
 }
 
-export default function TagArticleList(props: Props) {
+export default function TagBlogList(props: Props) {
   const page = Number(props.searchParams.page ?? "1");
   const { contents, totalCount } = use(
-    getArticles({
+    getBlog({
       offset: (page - 1) * PAR_PAGE,
       limit: PAR_PAGE,
       filters: `tags[contains]${props.params.tagid}`,
@@ -38,15 +37,15 @@ export default function TagArticleList(props: Props) {
       <section>
         <div className="inner-box">
           <h2 className="title">{tag.name}の記事一覧</h2>
-          <ArticleList
+          <BlogList
             isTopPage={false}
             tagid={props.params.tagid}
             articles={contents}
           />
           {totalPages > 1 && (
-            <ArticlePagination total={totalPages} currentPage={page} />
+            <Pagination total={totalPages} currentPage={page} />
           )}
-          <LinkButton href="/article/" text="ブログ一覧へ" />
+          <LinkButton href="/blog/" text="ブログ一覧へ" />
         </div>
       </section>
     </main>

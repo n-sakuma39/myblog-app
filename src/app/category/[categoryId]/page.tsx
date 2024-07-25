@@ -1,11 +1,11 @@
 import { use } from "react";
-import { getArticles, getCategoryDetail } from "@/libs/microcms";
+import { getBlog, getCategoryDetail } from "@/app/_libs/microcms";
 import { Metadata } from "next";
-import styles from "@/styles/app/article/article.module.scss";
-import ArticleList from "@/components/layouts/Article/ArticleList";
-import ArticlePagination from "@/components/layouts/Article/ArticlePagination";
-import { PAR_PAGE } from "@/config/paginationSettings";
-import { LinkButton } from "@/components/elements/Button";
+import styles from "@/app/blog/page.module.scss";
+import BlogList from "@/app/_components/layouts/Blog/CardList";
+import Pagination from "@/app/_components/layouts/Blog/Pagination";
+import { PAR_PAGE } from "@/app/_constants";
+import { LinkButton } from "@/app/_components/elements/Button";
 
 type Props = {
   params: { categoryId: string };
@@ -20,10 +20,10 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   };
 }
 
-export default function CategoryArticleList(props: Props) {
+export default function CategoryBlogList(props: Props) {
   const page = Number(props.searchParams.page ?? "1");
   const { contents, totalCount } = use(
-    getArticles({
+    getBlog({
       offset: (page - 1) * PAR_PAGE,
       limit: PAR_PAGE,
       filters: `categories[contains]${props.params.categoryId}`,
@@ -38,15 +38,15 @@ export default function CategoryArticleList(props: Props) {
       <section>
         <div className="inner-box">
           <h2 className="title">「{category.name}」記事一覧</h2>
-          <ArticleList
+          <BlogList
             isTopPage={false}
             categoryId={props.params.categoryId}
             articles={contents}
           />
           {totalPages > 1 && (
-            <ArticlePagination total={totalPages} currentPage={page} />
+            <Pagination total={totalPages} currentPage={page} />
           )}
-          <LinkButton href="/article/" text="ブログ一覧へ" />
+          <LinkButton href="/blog/" text="ブログ一覧へ" />
         </div>
       </section>
     </main>

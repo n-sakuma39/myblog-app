@@ -1,7 +1,7 @@
-import styles from "@/styles/app/top/top.module.scss";
+import styles from "@/app/page.module.scss";
 import Image from "next/image";
-import { LinkButton } from "@/components/elements/Button";
-import ArticleList from "@/components/layouts/Article/ArticleList";
+import { LinkButton } from "@/app/_components/elements/Button";
+import BlogList from "@/app/_components/layouts/Blog/CardList";
 
 export default function Home() {
   return (
@@ -24,8 +24,8 @@ export default function Home() {
       <section className={`${styles.blog} section`}>
         <div className="inner-box">
           <h2 className="title">BLOG</h2>
-          <ArticleList isTopPage={true} />
-          <LinkButton href="/article/" text="ブログ一覧" />
+          <BlogList isTopPage={true} />
+          <LinkButton href="/blog/" text="ブログ一覧" />
         </div>
       </section>
       <section className={`${styles.profile} section`}>
