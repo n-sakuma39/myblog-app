@@ -45,7 +45,7 @@ export async function generateStaticParams() {
 
 const BlogContent = dynamic(
   () => import("@/app/_components/layouts/Blog/SyntaxHight"),
-  { ssr: false }
+  { ssr: false, loading: () => <div>Loading...</div> }
 );
 
 export default async function Blog({ params, searchParams }: Props) {
@@ -75,7 +75,7 @@ export default async function Blog({ params, searchParams }: Props) {
             alt=""
             width={400}
             height={300}
-            priority={true}
+            loading="lazy"
           />
           <span className={articleStyle.worksCategory}>
             {article.categories[0].name}
@@ -88,7 +88,7 @@ export default async function Blog({ params, searchParams }: Props) {
             )) || "No Tags"}
           </p>
           <div className={styles.article}>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense>
               <BlogContent content={article.content} />
             </Suspense>
           </div>
