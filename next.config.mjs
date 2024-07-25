@@ -14,6 +14,10 @@ const nextConfig = {
   env: {
     SLACK_WEBHOOK_URL: process.env.SLACK_WEBHOOK_URL,
   },
+  experimental: {
+    optimizeCss: true,
+    optimizeImages: true,
+  },
 };
 
 export default nextConfig;
