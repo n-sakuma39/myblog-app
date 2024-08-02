@@ -44,11 +44,11 @@ export default async function Home() {
             <p className={styles.profileImg}>
               <Image
                 src="/images/about.png"
-                alt=""
+                alt="Profile Image"
                 width={400}
                 height={400}
                 priority
-                sizes="100vw"
+                sizes="(max-width: 768px) 100vw, 400px"
               />
             </p>
             <div className={styles.profileBody}>
