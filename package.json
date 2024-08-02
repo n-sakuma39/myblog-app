@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "run-p dev:next dev:scss",
     "dev:next": "next dev",
-    "dev:scss": "typed-scss-modules src --watch",
+    "dev:scss": "typed-scss-modules src --watch > /dev/null 2>&1",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
