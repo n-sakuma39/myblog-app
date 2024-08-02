@@ -1,8 +1,15 @@
 import styles from "@/app/page.module.scss";
 import Image from "next/image";
 import { LinkButton } from "@/app/_components/elements/Button";
-import BlogList from "@/app/_components/layouts/Blog/CardList";
+import dynamic from "next/dynamic";
 import { getBlog } from "@/app/_libs/microcms";
+
+const BlogList = dynamic(
+  () => import("@/app/_components/layouts/Blog/CardList"),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
 
 export default async function Home() {
   const { contents } = await getBlog({ limit: 3 });
@@ -33,7 +40,9 @@ export default async function Home() {
               <LinkButton href="/blog/" text="ブログ一覧" />
             </>
           ) : (
-            <p className={styles.notfound}>現在、表示できる記事はありません。</p>
+            <p className={styles.notfound}>
+              現在、表示できる記事はありません。
+            </p>
           )}
         </div>
       </section>
@@ -60,7 +69,6 @@ export default async function Home() {
           <LinkButton href="/about/" text="詳細はこちら" />
         </div>
       </section>
-
       <section className={`${styles.contact} section`}>
         <div className="inner-box">
           <h2 className="title">CONTACT</h2>

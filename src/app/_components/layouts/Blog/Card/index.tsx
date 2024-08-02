@@ -15,7 +15,7 @@ const BlogItem = ({ article }: BlogItemProps) => {
             width={400}
             height={300}
             priority
-            sizes="100vw"
+            sizes="(max-width: 768px) 100vw, 400px"
           />
           <span className={styles.worksCategory}>
             {article.categories[0].name}
