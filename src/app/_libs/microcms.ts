@@ -1,15 +1,9 @@
 import { Article, CategoryName, TagName } from "@/app/_types/blog";
 import { MicroCMSQueries, createClient } from "microcms-js-sdk";
 
-if (!process.env.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN)
-  throw new Error("NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN is required");
-if (!process.env.NEXT_PUBLIC_MICROCMS_API_KEY)
-  throw new Error("NEXT_PUBLIC_MICROCMS_API_KEY is required");
-
-// microCMSClientの作成
-export const microCMSClient = createClient({
-  serviceDomain: process.env.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN,
-  apiKey: process.env.NEXT_PUBLIC_MICROCMS_API_KEY,
+const client = createClient({
+  serviceDomain: process.env.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN || 'dummy',
+  apiKey: process.env.NEXT_PUBLIC_MICROCMS_API_KEY || 'dummy',
 });
 
 // 共通のリクエスト関数
@@ -18,15 +12,27 @@ async function fetchList<T>(
   queries?: MicroCMSQueries,
   revalidate: number = 0
 ) {
-  return await microCMSClient.getList<T>({
-    customRequestInit: {
-      next: {
-        revalidate,
+  try {
+    const data = await client.getList<T>({
+      customRequestInit: {
+        next: {
+          revalidate,
+        },
       },
-    },
-    endpoint,
-    queries,
-  });
+      endpoint,
+      queries,
+    });
+    return data;
+  } catch (error) {
+    console.error('Failed to fetch data:', error);
+    // フォールバックデータを返す
+    return {
+      contents: [],
+      totalCount: 0,
+      offset: 0,
+      limit: 10,
+    };
+  }
 }
 
 async function fetchListDetail<T>(
@@ -35,16 +41,28 @@ async function fetchListDetail<T>(
   queries?: MicroCMSQueries,
   revalidate: number = 0
 ) {
-  return await microCMSClient.getListDetail<T>({
-    customRequestInit: {
-      next: {
-        revalidate,
+  try {
+    const data = await client.getListDetail<T>({
+      customRequestInit: {
+        next: {
+          revalidate,
+        },
       },
-    },
-    endpoint,
-    contentId,
-    queries,
-  });
+      endpoint,
+      contentId,
+      queries,
+    });
+    return data;
+  } catch (error) {
+    console.error('Failed to fetch data:', error);
+    // フォールバックデータを返す
+    return {
+      contents: [],
+      totalCount: 0,
+      offset: 0,
+      limit: 10,
+    };
+  }
 }
 
 // 記事一覧の取得

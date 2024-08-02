@@ -2,8 +2,11 @@ import styles from "@/app/page.module.scss";
 import Image from "next/image";
 import { LinkButton } from "@/app/_components/elements/Button";
 import BlogList from "@/app/_components/layouts/Blog/CardList";
+import { getBlog } from "@/app/_libs/microcms";
 
-export default function Home() {
+export default async function Home() {
+  const { contents } = await getBlog({ limit: 3 });
+
   return (
     <main className={styles.topContainer}>
       <section className={styles.hero}>
@@ -24,8 +27,14 @@ export default function Home() {
       <section className={`${styles.blog} section`}>
         <div className="inner-box">
           <h2 className="title">BLOG</h2>
-          <BlogList isTopPage={true} />
-          <LinkButton href="/blog/" text="ブログ一覧" />
+          {contents.length > 0 ? (
+            <>
+              <BlogList isTopPage={true} articles={contents} />
+              <LinkButton href="/blog/" text="ブログ一覧" />
+            </>
+          ) : (
+            <p className={styles.notfound}>現在、表示できる記事はありません。</p>
+          )}
         </div>
       </section>
       <section className={`${styles.profile} section`}>

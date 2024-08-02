@@ -26,7 +26,11 @@ const BlogPage = (props: Props) => {
       <section>
         <div className="inner-box">
           <h2 className="title">BLOG</h2>
-          <BlogList isTopPage={false} articles={contents} />
+          {contents.length > 0 ? (
+            <BlogList isTopPage={false} articles={contents} />
+          ) : (
+            <p>現在、記事はありません。</p>
+          )}
           {totalPages > 1 && (
             <Pagination total={totalPages} currentPage={page} />
           )}
