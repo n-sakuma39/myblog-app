@@ -6,6 +6,7 @@ import BlogList from "@/app/_components/layouts/Blog/CardList";
 import Pagination from "@/app/_components/layouts/Blog/Pagination";
 import { PAR_PAGE } from "@/app/_constants";
 import { LinkButton } from "@/app/_components/elements/Button";
+import { TagName } from "@/app/_types/blog";
 
 type Props = {
   params: { tagid: string };
@@ -15,6 +16,13 @@ type Props = {
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const id = props.params.tagid;
   const tag = await getTagDetail(id);
+  
+  if (!tag || !('name' in tag)) {
+    return {
+      title: "タグが見つかりません | SakuTech blog",
+    };
+  }
+  
   return {
     title: `「${tag.name}」記事一覧 | SakuTech blog`,
   };
@@ -29,8 +37,12 @@ export default function TagBlogList(props: Props) {
       filters: `tags[contains]${props.params.tagid}`,
     })
   );
-  const tag = use(getTagDetail(props.params.tagid));
+  const tag = use(getTagDetail(props.params.tagid)) as TagName;
   const totalPages = Math.ceil(totalCount / PAR_PAGE);
+
+  if (!tag || !('name' in tag)) {
+    return <div>タグが見つかりません</div>;
+  }
 
   return (
     <main className={styles.worksImg}>
