@@ -26,7 +26,7 @@ export async function generateMetadata({
   const article = await getBlogDetail(id, {
     draftKey: searchParams.dk,
   });
-  if (!article) {
+  if (!article || !('title' in article)) {
     return {
       title: "記事が見つかりません",
     };
@@ -53,7 +53,7 @@ export default async function Blog({ params, searchParams }: Props) {
     draftKey: searchParams.dk,
   });
 
-  if (!article) {
+  if (!article || !('title' in article)) {
     notFound();
   }
 
