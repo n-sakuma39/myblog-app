@@ -26,7 +26,7 @@ export async function generateMetadata({
   const article = await getBlogDetail(id, {
     draftKey: searchParams.dk,
   });
-  if (!article || !('title' in article)) {
+  if (!article || !("title" in article)) {
     return {
       title: "記事が見つかりません",
     };
@@ -53,12 +53,12 @@ export default async function Blog({ params, searchParams }: Props) {
     draftKey: searchParams.dk,
   });
 
-  if (!article || !('title' in article)) {
+  if (!article || !("title" in article)) {
     notFound();
   }
 
   return (
-    <main className={articleStyle.worksItem}>
+    <main className={`${articleStyle.worksItem} ${articleStyle.blogDetail}`}>
       <article className={styles["detail-box"]}>
         <h1>{article.title}</h1>
         <div className={styles.date}>
