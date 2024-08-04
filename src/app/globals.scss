@@ -161,6 +161,11 @@ h5 {
   }
 }
 
+pre[class*="language-"] {
+  border: none !important;
+  box-shadow: none !important;
+}
+
 /* スマホ表示 */
 @media screen and (max-width: 767px) {
   .box {

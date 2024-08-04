@@ -3,7 +3,7 @@ import parse from "html-react-parser";
 import Prism from "prismjs";
 import { useEffect } from "react";
 import "prismjs/themes/prism-dark.css";
-import "./index.module.scss";
+import styles from "./index.module.scss";
 
 // シンタックスハイライト言語別インポート
 import "prismjs/components/prism-javascript";
@@ -24,7 +24,7 @@ export default function BlogContent(props: Props) {
       const filename = codeElement.getAttribute("data-filename");
       const spanElement = document.createElement("span");
       spanElement.textContent = filename;
-      spanElement.className = "code-block-filename";
+      spanElement.className = styles["code-block-filename"];
       codeElement.prepend(spanElement);
     });
   }, []);
