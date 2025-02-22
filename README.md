@@ -120,18 +120,20 @@ npm run start
 
 ## ディレクトリ構成
 
+```
 src/
-├── app/
-│ ├── components/ # 共通コンポーネント
-│ ├── constants/ # 定数
-│ ├── libs/ # ユーティリティ関数
-│ ├── types/ # 型定義
-│ ├── about/ # About ページ
-│ ├── blog/ # ブログページ
-│ ├── contact/ # お問い合わせページ
-│ └── api/ # API ルート
-├── styles/ # グローバルスタイル
-public/ # 静的ファイル
+  ├── app/
+  │   ├── _components/     # 共通コンポーネント
+  │   ├── _constants/      # 定数
+  │   ├── _libs/          # ユーティリティ関数
+  │   ├── _types/         # 型定義
+  │   ├── about/          # Aboutページ
+  │   ├── blog/           # ブログページ
+  │   ├── contact/        # お問い合わせページ
+  │   └── api/            # APIルート
+  ├── styles/             # グローバルスタイル
+  └── public/             # 静的ファイル
+```
 
 # ライセンス
 
