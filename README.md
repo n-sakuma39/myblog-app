@@ -1,47 +1,142 @@
+# SakuTech blog
+
 ## 概要
 
-- 個人ポートフォリオサイト
+Next.js 14 と microCMS を使用した個人ポートフォリオ＆ブログサイトです。
+
+主な機能：
+
+- ブログ記事の投稿・管理（microCMS 連携）
+- カテゴリー別、タグ別のフィルタリング
+- 記事検索機能
+- ページネーション
+- お問い合わせフォーム（Gmail 連携）
 
 ## 技術スタック
 
-- Next.js（14.2.3）
-- microCMS
-- TypeScript（5.0.0）
-- CSS module
-- Node.js（20.9.0）
-- GitHub
+### フレームワーク・言語
+
+- Next.js 14.2.3
+- TypeScript 5.0.0
+- Node.js 20.9.0
+
+### パッケージマネージャー
+
+- npm 9.1.2
+- yarn 1.22.22
+
+### スタイリング
+
+- CSS Modules
+- Sass
+- CSS 最適化（critters）
+
+### CMS・API
+
+- microCMS（ヘッドレス CMS）
+- nodemailer（メール送信）
+
+### デプロイ
+
 - Vercel
+- GitHub
 
-## 主な使用ライブラリ
+## 環境変数
 
-- date-fns
-- html-react-parser
-- microcms-js-sdk
-- nodemailer
-- prismjs
-- react-hook-form
-- react-icons
-- react-toastify
-- sass
-- sharp
+microCMS
 
-## 実装機能
+- NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN=
+- NEXT_PUBLIC_MICROCMS_API_KEY=
 
-- ブログ記事  
-  L カテゴリ別、タグ別のフィルタリング  
-  L ページネーション  
-  L 投稿前のプレビュー画面  
-  L 検索機能
-- お問い合わせフォーム  
-  L バリデート  
-  L Gmail への送信
+Gmail
 
-## コメント
+- NODEMAILER_EMAIL=
+- NODEMAILER_PASSWORD=
+- CONTACT_RECEIVE_EMAIL=
 
-Next.js14 と microCMS を使った個人ポートフォリオサイトです。  
-TOP ページ、BLOG ページ、ABOUT ページ、お問い合わせページと構成されています。  
-主にブログページは microCMS を使い、ヘッドレス CMS から記事投稿できるようにしています。
+その他
 
-## 著者
+- SLACK_WEBHOOK_URL=
+
+## 開発環境構築
+
+### 必要要件
+
+- Node.js 20.9.0
+- npm または yarn
+
+### セットアップ手順
+
+1. リポジトリのクローン
+
+```bash
+git clone https://github.com/n-sakuma39/myblog-app.git
+cd myblog-app
+```
+
+2. 依存パッケージのインストール
+
+```bash
+npm install
+or
+yarn install
+```
+
+3. 環境変数の設定
+
+```bash
+cp .env.example .env.local
+```
+
+4. 開発サーバーの起動
+
+```bash
+npm run dev
+or
+yarn dev
+```
+
+## 利用可能なコマンド
+
+```bash
+開発サーバー起動
+npm run dev
+```
+
+```bash
+SCSS タイプ定義の自動生成
+npm run dev:scss
+```
+
+```bash
+プロダクションビルド
+npm run build
+```
+
+```bash
+プロダクションサーバー起動
+npm run start
+```
+
+## ディレクトリ構成
+
+src/
+├── app/
+│ ├── components/ # 共通コンポーネント
+│ ├── constants/ # 定数
+│ ├── libs/ # ユーティリティ関数
+│ ├── types/ # 型定義
+│ ├── about/ # About ページ
+│ ├── blog/ # ブログページ
+│ ├── contact/ # お問い合わせページ
+│ └── api/ # API ルート
+├── styles/ # グローバルスタイル
+public/ # 静的ファイル
+
+# ライセンス
+
+[MIT License](LICENSE)
+
+## 作者
 
 [SakuTech blog](https://github.com/n-sakuma39/)
